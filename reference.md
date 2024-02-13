@@ -17,11 +17,17 @@ We will use these stats, including the basic stats such as STR, INT, CHA, ...
 #### How are basic attributes are referenced and used
 
 `STR` -> Strength, scaling `Physical DMG`
+
 `VIT` -> Vitality, scaling character's `Max HP` and some `DEF`
+
 `INT` -> Intelligence, a reduce scaling for character's `Max EXP` for leveling up. Maximum is 100.
+
 `WLP` -> Willpower, scaling character's `Magical ATK` and `Magical RES`
+
 `BRV` -> Bravery, scaling character's `Crit Rate` and `Crit DMG`
+
 `END` -> Endurance, scaling character's `DEF`, `Max HP`, and `Debuff` resistence.
+
 `SPD` -> Speed, scaling character's action.
 
 #### How are attributes are calculated
