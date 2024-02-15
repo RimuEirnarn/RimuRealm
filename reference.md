@@ -20,15 +20,17 @@ We will use these stats, including the basic stats such as STR, INT, CHA, ...
 
 `VIT` -> Vitality, scaling character's `Max HP` and some `DEF`
 
-`INT` -> Intelligence, a reduce scaling for character's `Max EXP` for leveling up. Maximum is 100.
+`INT` -> Intelligence, a reduce scaling for character's `Max EXP` for leveling up. Maximum is 100 pts.
 
 `WLP` -> Willpower, scaling character's `Magical ATK` and `Magical RES`
 
-`BRV` -> Bravery, scaling character's `Crit Rate` and `Crit DMG`
+`BRV` -> Bravery, scaling character's `Crit Rate` and `Crit DMG`. May be limited to 200 pts.
 
 `END` -> Endurance, scaling character's `DEF`, `Max HP`, and `Debuff` resistence.
 
-`SPD` -> Speed, scaling character's action.
+`SPD` -> Speed, scaling character's action. More speed means quicker to do an action.
+
+`AGI` -> Agility, scales `SPD` attribute.
 
 #### How are attributes are calculated
 
@@ -39,6 +41,10 @@ We will use these stats, including the basic stats such as STR, INT, CHA, ...
 `Max HP` may uses `Level`, `VIT`, and `END` as basic scaling.
 
 `Max MP` may uses `Rank Level` as scaling factor.
+
+`Level` scales `Base ATK`, `Base DEF`, `Max HP` as described above. This is counter-part to `Rank Level` who may be called as `Magica Level`
+
+`Rank Level` scales `Base Magic ATK` and `Base Magic RES` significantly. As it's used as main scaler, any Magical characters requires high `Rank Level` to achieve decent `DMG` and `RES`.
 
 #### How are main attributes are calculated
 
@@ -57,7 +63,21 @@ Maximum `Level` achieved is `10,000` and maximum `Rank Level` is `5.0`.
 
 #### How ATK, etc. works
 
-TODO
+`Base ATK` is not a constant, it's relative to Character's Level and their Weapon.
+
+`Base DEF` is not a constant, it's relative to Character's Level and their Equipment.
+
+`ATK` is calculated by:
+
+`ATK = ((Base ATK + STR) * ATK Linear Scaling) + Level%`
+
+`DEF = ((Base DEF + VIT / 4 + END / 2) * DEF_Linear_Scaling) + Level%`
+
+`Max HP = (Base Max HP + VIT + END / 2) * HP_Linear_Scaling + Level%`
+
+`Magic ATK = (Base Magic ATK + WLP / 2) * RV Scaling * (Rank Level*10)`
+
+`Magic RES = (Base Magic RES + WLP / 2) * RV Scaling * (Rank Level*10)`
 
 ### Magika
 
